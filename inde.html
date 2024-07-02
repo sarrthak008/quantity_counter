@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: #000000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #container {
+            padding: 7vh 1vw;
+            width: 20vw;
+            background-color: rgb(224, 233, 253);
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            flex-direction: column;
+            gap: 4vh;
+            border-radius: 19px;
+        }
+
+        #container img {
+            height: 25vh;
+            filter: drop-shadow(10px 10px 10px rgba(108, 108, 154, 0.804));
+        }
+
+
+
+        #btns {
+            font-size: 3vw;
+            width: 10vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #btns i {
+            cursor: pointer;
+            color: blue;
+        }
+
+        .btn {
+            background: linear-gradient(to left, rgb(181, 81, 248), rgb(126, 204, 206));
+            border: none;
+            padding: 1vh 2vw;
+            font-size: 1.5vw;
+            color: white;
+            border-radius: 24px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:480px) {
+              
+
+        #container {
+            padding: 4vh 1vw;
+            width: 70vw;
+        }
+
+        #container img {
+            height: 20vh;
+        }
+
+
+
+        #btns {
+            font-size: 10vw;
+            display: flex;
+            align-items: center;
+            gap: 2vw;
+            justify-content: center;
+        }
+
+        
+
+        .btn {
+            border: none;
+            padding: 1vh 6vw;
+            font-size: 3.2vw;
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img src="ticket.png">
+        <div id="btns">
+            <i class="ri-indeterminate-circle-fill" onclick="checkQuantity('dec')"></i>
+            <span id="numberOfIteam">1</span>
+            <i class="ri-add-circle-fill" onclick="checkQuantity('inc')"></i>
+        </div>
+        <button class="btn">buy now</button>
+    </div>
+    <script>
+        function checkQuantity(oper) {
+            let count = document.getElementById("numberOfIteam")
+            let counterValue = parseInt(count.innerText)
+            if (oper == 'inc' && counterValue < 5) {
+                count.innerText = ++counterValue
+            } else if (oper == "dec" && counterValue > 1) {
+                count.innerText = --counterValue
+            }
+        }
+    </script>
+</body>
+
+</html>
